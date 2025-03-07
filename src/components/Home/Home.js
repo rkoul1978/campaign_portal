@@ -1,5 +1,5 @@
 import { React, useState} from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Radio, RadioGroup, FormControlLabel,  FormControl  } from '@mui/material';
+import { Box, Dialog, DialogTitle, DialogContent, DialogActions, Radio, RadioGroup, FormControlLabel,  FormControl  } from '@mui/material';
 import { Button, Typography } from '@mui/joy';
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +19,7 @@ const Home = ({handleSelect})=>{
 
     const navigateTo = () =>{
         if (radioValue === 'createNewCampaign'){
-            navigate('/mcp/CreateCampaignDescription');
+            navigate('/mcp/CreateCampaign');
             handleSelect('createCampaign');
         } else {
             navigate('/mcp/CampaignTemplates');
@@ -33,44 +33,47 @@ const Home = ({handleSelect})=>{
 
     return(
     <>
+    <Box sx={{ ml:5, mt:2, mb:5}}>
         <Button variant="outlined" onClick={openDialog}>
             Create a Campaign
         </Button>
-        <Dialog open={open} onClose={closeDialog} maxWidth='md'>
-            <DialogTitle>
-                Select How to Create Your Campaign
-            </DialogTitle> 
-            <DialogContent>
-                <FormControl>
-                    <RadioGroup defaultValue="createNewCampaign" name="radio-buttons-group" value={radioValue} onChange={handleRadioChange}>
-                        <FormControlLabel value="createNewCampaign" control={<Radio />} 
-                            label={
-                                <Typography level="h1" sx={{ fontSize: 'md'}}>
-                                    Create a New Campaign 
-                                 </Typography>
-                            }
-                        />
-                        <Typography sx={{ fontSize: 'sm', marginLeft: 4, marginBottom:2}}>
-                            Create a new Informed Delivery mail campaign.
-                        </Typography>
-                        <FormControlLabel value="createFromTemplate" control={<Radio />} 
-                            label={
-                                <Typography level="h1" sx={{ fontSize: 'md'}}>
-                                    Create a Campaign from a Template
-                                 </Typography>
-                            }
-                        />
-                        <Typography sx={{ fontSize: 'sm', marginLeft: 4}}>
-                            Choose a previously saved template to create your Informed Delivery mail campaign.
-                        </Typography>
-                    </RadioGroup>
-                </FormControl>
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={ navigateTo }>Continue</Button>
-                <Button variant="outlined" onClick={ closeDialog  } autoFocus> Cancel </Button>
-            </DialogActions>
-        </Dialog>
+    </Box>
+        
+    <Dialog open={open} onClose={closeDialog} maxWidth='md'>
+        <DialogTitle>
+            Select How to Create Your Campaign
+        </DialogTitle> 
+        <DialogContent>
+            <FormControl>
+                <RadioGroup defaultValue="createNewCampaign" name="radio-buttons-group" value={radioValue} onChange={handleRadioChange}>
+                    <FormControlLabel value="createNewCampaign" control={<Radio />} 
+                        label={
+                            <Typography level="h1" sx={{ fontSize: 'md'}}>
+                                Create a New Campaign 
+                                </Typography>
+                        }
+                    />
+                    <Typography sx={{ fontSize: 'sm', marginLeft: 4, marginBottom:2}}>
+                        Create a new Informed Delivery mail campaign.
+                    </Typography>
+                    <FormControlLabel value="createFromTemplate" control={<Radio />} 
+                        label={
+                            <Typography level="h1" sx={{ fontSize: 'md'}}>
+                                Create a Campaign from a Template
+                                </Typography>
+                        }
+                    />
+                    <Typography sx={{ fontSize: 'sm', marginLeft: 4}}>
+                        Choose a previously saved template to create your Informed Delivery mail campaign.
+                    </Typography>
+                </RadioGroup>
+            </FormControl>
+        </DialogContent>
+        <DialogActions>
+            <Button onClick={ navigateTo }>Continue</Button>
+            <Button variant="outlined" onClick={ closeDialog  } autoFocus> Cancel </Button>
+        </DialogActions>
+    </Dialog>
     </>
     );
 }

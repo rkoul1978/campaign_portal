@@ -62,9 +62,10 @@ const CampaignTemplates = ({templateData, getTemplateData}) =>{
             display: 'flex',
             flexWrap: 'wrap',
             '& > :not(style)': {
-                marginLeft:3,
-                marginRight:3,
-                marginBottom:2,
+                ml:3,
+                mr:3,
+                mb:2,
+                mt:0.5,
                 width: '100%',
                 height: 'auto',
             },
@@ -77,17 +78,17 @@ const CampaignTemplates = ({templateData, getTemplateData}) =>{
                             Campaigns Templates
                         </Typography>
                     </div>
-                    <div className="col-2">
+                    <div className="col-3">
                         <FormControl orientation="vertical" sx={{ margin:2,width:'75%' }}>
                             <Button >Create Template</Button>
                         </FormControl>
                     </div>
-                    <div className="col-2">
+                    <div className="col-3">
                         <FormControl orientation="vertical" sx={{ marginTop:2,marginLeft:-4,width:'75%' }}>
                             <Button>Create Campaign</Button>
                         </FormControl>
                     </div>
-                    <div className="col-2">
+                    <div className="col-3">
                         <FormControl orientation="vertical" sx={{ marginTop:2,marginLeft:-10,width:'75%' }}>
                             <Button>Delete Template</Button>
                         </FormControl>

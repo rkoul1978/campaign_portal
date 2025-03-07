@@ -58,12 +58,12 @@ const CreateCampaignDescription = ({campaignTitle, setCampaignTitle}) =>{
                     }
                 </FormControl>
                 <div className="row">
-                    <div className="col-3">
+                    <div className="col-4">
                         <FormControl orientation="vertical" sx={{ mt:2,ml:2,mb:2,width:'50%' }}>
                             <Button onClick = { saveDraft }>Save as Draft</Button>
                         </FormControl>  
                     </div>
-                    <div className="col-3">
+                    <div className="col-4">
                         <FormControl orientation="vertical" sx={{ mt:2,ml:-20,mb:2,width:'50%' }}>
                             <Button variant="outlined">Save and Continue</Button>
                         </FormControl>  

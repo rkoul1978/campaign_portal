@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import  store  from './Store.js'
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import { Nav, Tab,} from 'react-bootstrap';
+import { Box }  from '@mui/material';
 import Home from './components/Home/Home.js';
 import AllCampaigns from './components/AllCampaigns/AllCampaigns.js';
 import CreateCampaignDescription from './components/CreateCampaign/CreateCampaignDescription.js';
@@ -22,19 +23,20 @@ const App =()=> {
         <Provider store={store}>
           <BrowserRouter>
             <div className="row">
-              <div className="col-1">
+              <div className="col-4">
+                <Box sx={{ marginLeft:5 }}>
+                  <h4>Mailer Campaign Portal</h4>
+                </Box>
+                
               </div>
-              <div className="col-3">
-                <h4>Mailer Campaign Portal</h4>
-              </div>
-              <div className="col-8">
+              <div className="col-8" style={{ fontSize:14, marginLeft:-10}}>
                   <Tab.Container defaultActiveKey="home" activeKey={ currentTab} variant="pill" onSelect={ handleSelect }>
                         <Nav>
                             <Nav.Item>
                                 <Nav.Link eventKey="home" as={Link} to={`${path}/Home`}>Home</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link eventKey="createCampaign" as={Link} to={`${path}/CreateCampaignDescription`}>Create Campaign</Nav.Link>
+                                <Nav.Link eventKey="createCampaign" as={Link} to={`${path}/CreateCampaign`}>Create Campaign</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
                                 <Nav.Link eventKey="allCampaigns" as={Link} to={`${path}/AllCampaigns`}>All Campaigns</Nav.Link>
@@ -61,7 +63,7 @@ const App =()=> {
                       <Route path="/" element= { <Navigate to={`${path}/Home`} /> }  />
                       <Route path={`${path}`} element= { <Navigate to={`${path}/Home`} /> }  />
                       <Route path={`${path}/Home`} element = { <Home handleSelect={handleSelect}/> } />
-                      <Route path={`${path}/CreateCampaignDescription`} element = { <CreateCampaignDescription/> } />
+                      <Route path={`${path}/CreateCampaign`} element = { <CreateCampaignDescription/> } />
                       <Route path={`${path}/CreateCampaignImages`} element = { <CreateCampaignImages/> } />
                       <Route path={`${path}/AllCampaigns` } element = { <AllCampaigns handleSelect={handleSelect}/> }  />
                       <Route path={`${path}/CampaignTemplates`} element = { <CampaignTemplates/> } />

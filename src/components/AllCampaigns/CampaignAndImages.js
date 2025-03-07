@@ -15,7 +15,7 @@ const CampaignAndImages = ({campaignID, setCampaignID, campaignData, handleSelec
    },[campaignData,campaignID]);
 
    const editCampaign = () => {
-        navigate('/mcp/CreateCampaignDescription',{ state: { campaignRowData: campaignRowData }});
+        navigate('/mcp/CreateCampaign',{ state: { campaignRowData: campaignRowData }});
         handleSelect('createCampaign');    // make the 'create campaign' tab active
    }
    return (
@@ -24,7 +24,9 @@ const CampaignAndImages = ({campaignID, setCampaignID, campaignData, handleSelec
             display: 'flex',
             flexWrap: 'wrap',
             '& > :not(style)': {
-                margin:2,
+                ml:2,
+                mt:0.5,
+                mb:1,
                 width: '100%',
                 height: 'auto',
             },
@@ -32,17 +34,17 @@ const CampaignAndImages = ({campaignID, setCampaignID, campaignData, handleSelec
             >
                 <Card>
                     <div className="row">
-                        <div className="col-2">
+                        <div className="col-3">
                             <FormControl orientation="vertical" sx={{ margin:2,width:'75%' }}>
                                 <Button >Preview Campaign</Button>
                             </FormControl>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                             <FormControl orientation="vertical" sx={{ marginTop:2,marginLeft:-4,width:'75%' }}>
                                 <Button variant="outlined">Cancel Campaign</Button>
                             </FormControl>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                             <FormControl orientation="vertical" sx={{ marginTop:2,marginLeft:-10,width:'75%' }}>
                                 <Button variant="outlined" onClick={ () => setCampaignID(null)}>
                                     Back
@@ -71,7 +73,7 @@ const CampaignAndImages = ({campaignID, setCampaignID, campaignData, handleSelec
                     <Typography level="h4" sx={{ fontSize: 'lg', ml: 2 }}>
                         Campaign Title:
                     </Typography>
-                    <Typography level="h6" sx={{ fontSize: 'sm', ml: 2, mt:0.5 }}>
+                    <Typography level="h6" sx={{ fontSize: 'sm', ml: 2, mt:0.5,mb:2 }}>
                       { 
                         campaignRowData.length > 0 &&
                             campaignRowData[0].title
