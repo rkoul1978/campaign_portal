@@ -1,5 +1,5 @@
 import './App.css';
-import { React, useState} from 'react';
+import  React, { useState, lazy} from 'react';
 import { Provider } from 'react-redux';
 import  store  from './Store.js'
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
@@ -7,9 +7,11 @@ import { Nav, Tab,} from 'react-bootstrap';
 import { Box }  from '@mui/material';
 import Home from './components/Home/Home.js';
 import AllCampaigns from './components/AllCampaigns/AllCampaigns.js';
-import CreateCampaignDescription from './components/CreateCampaign/CreateCampaignDescription.js';
+//import CreateCampaignDescription from './components/CreateCampaign/CreateCampaignDescription.js';
 import CreateCampaignImages from './components/CreateCampaign/CreateCampaignImages.js';
 import CampaignTemplates from './components/CampaignTemplates/CampaignTemplates.js';
+
+const CreateCampaignDescription = lazy(() => import ("./components/CreateCampaign/CreateCampaignDescription"));
 
 const App =()=> {
   let path = "/mcp";
@@ -27,7 +29,6 @@ const App =()=> {
                 <Box sx={{ marginLeft:5 }}>
                   <h4>Mailer Campaign Portal</h4>
                 </Box>
-                
               </div>
               <div className="col-8" style={{ fontSize:14, marginLeft:-10}}>
                   <Tab.Container defaultActiveKey="home" activeKey={ currentTab} variant="pill" onSelect={ handleSelect }>

@@ -47,7 +47,7 @@ const CreateCampaignDescription = ({campaignTitle, setCampaignTitle}) =>{
                 <Typography level="h2" sx={{ fontSize: 'xl', m: 2 }}>
                     Campaign Description
                 </Typography>
-                <FormControl orientation="vertical" sx={{ m:2,width:'50%' }}>
+                <FormControl orientation="vertical" sx={{ m:2,width:'35%' }}>
                     <FormLabel>Campaign Title</FormLabel>
                     <Input label="" variant="outlined" value={ campaignTitle } onInput={ titleChange } autoFocus/>
                     {

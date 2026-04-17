@@ -68,17 +68,42 @@ const CampaignAndImages = ({campaignID, setCampaignID, campaignData, handleSelec
                                 </Button>
                             </FormControl> 
                         </div>
+                        <div className="col-3">
+                            <Typography level="h2" sx={{ fontSize: 'xl', m: 2 }}>
+                                Campaign Images
+                            </Typography>
+                        </div>
+                        <div className="col-2">
+                            <FormControl orientation="vertical" sx={{ mt:2, ml:-5, width:'75%' }}>
+                                <Button variant="outlined" onClick={ editCampaign }>
+                                    Edit
+                                </Button>
+                            </FormControl> 
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-5">
+                            <Typography level="h4" sx={{ fontSize: 'lg', ml: 2 }}>
+                                Campaign Title:
+                            </Typography>
+                            <Typography level="h6" sx={{ fontSize: 'sm', ml: 2, mt:0.5,mb:2 }}>
+                            { 
+                                campaignRowData.length > 0 &&
+                                    campaignRowData[0].title
+                            }
+                            </Typography>
+                        </div>
+                        <div className="col-6">
+                            <Typography level="h4" sx={{ fontSize: 'lg', ml: 2 }}>
+                                Representative Image:
+                            </Typography>
+                            { 
+                                campaignRowData.length > 0 &&
+                                    <img src={campaignRowData[0].thumbnail} style={{ padding:'0px', width:'200px', height:'200px'}}/>
+                            }
+                        </div>
                     </div>
                     
-                    <Typography level="h4" sx={{ fontSize: 'lg', ml: 2 }}>
-                        Campaign Title:
-                    </Typography>
-                    <Typography level="h6" sx={{ fontSize: 'sm', ml: 2, mt:0.5,mb:2 }}>
-                      { 
-                        campaignRowData.length > 0 &&
-                            campaignRowData[0].title
-                      }
-                    </Typography>
                 </Card>
             </Box>
        

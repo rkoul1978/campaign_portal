@@ -55,7 +55,7 @@ const AllCampaigns = ({campaignData, getCampaignData, handleSelect})=>{
                 <Typography level="h2" sx={{ fontSize: 'xl', m: 2 }}>
                     All Campaigns
                 </Typography>
-                <FormControl orientation="vertical" sx={{ m:2,width:'50%' }}>
+                <FormControl orientation="vertical" sx={{ m:2,width:'35%' }}>
                     <FormLabel>Search for a Brand Display Name, Campaign Title, Campaign Code</FormLabel>
                     <Input label="" variant="outlined" value={ filter } onInput={ filterChange } autoFocus/>
                 </FormControl>
