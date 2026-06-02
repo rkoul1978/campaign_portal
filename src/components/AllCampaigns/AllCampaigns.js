@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from "react-redux";
 import { Input, FormControl, FormLabel, Select, Option, Button, IconButton, Typography } from '@mui/joy';
-import { Card, Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination }  from '@mui/material';
+import { Card, Box, Table, TableBody, TableCell,  TableContainer, TableHead, TableRow, TablePagination }  from '@mui/material';
 import { useTheme } from '@mui/system';
 import PropTypes from 'prop-types';
 import { FirstPage, LastPage, KeyboardArrowLeft, KeyboardArrowRight, ChevronRightRounded }   from '@mui/icons-material';
@@ -14,6 +14,7 @@ const AllCampaigns = ({campaignData, getCampaignData, handleSelect})=>{
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [filter,setFilter] = useState('');
     const [campaignID, setCampaignID] = useState(null);
+    const [status, setStatus] = useState('All');
 
     useEffect(() =>{
         getCampaignData("https://dummyjson.com/products");
@@ -36,6 +37,10 @@ const AllCampaigns = ({campaignData, getCampaignData, handleSelect})=>{
     const openCampaignID = (campaignID) => {
         setCampaignID(campaignID);
     }
+
+    const handleStatusChange = (event, newValue) => {
+        setStatus(newValue);
+  };
     return(
         campaignID !== null ? <CampaignAndImages campaignID={ campaignID} setCampaignID={setCampaignID} handleSelect={handleSelect}/> :
         <Box
@@ -78,7 +83,8 @@ const AllCampaigns = ({campaignData, getCampaignData, handleSelect})=>{
                         <FormControl orientation="vertical" sx={{ m:2,width:'100%' }}>
                             <FormLabel>Status</FormLabel>
                             <Select 
-                                value="All"
+                                value={status}
+                                onChange={ handleStatusChange }
                             >
                                 <Option value='All'>
                                     All
